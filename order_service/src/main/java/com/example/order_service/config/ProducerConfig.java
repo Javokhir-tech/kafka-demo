@@ -1,4 +1,4 @@
-package com.example.food_service.config;
+package com.example.order_service.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;

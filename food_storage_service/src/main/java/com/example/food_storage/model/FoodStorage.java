@@ -1,11 +1,11 @@
-package com.example.food_service.model;
+package com.example.food_storage.model;
 
 import lombok.Data;
 import lombok.Value;
 
 @Data
 @Value
-public class FoodOrder {
+public class FoodStorage {
     String item;
     Double amount;
 }

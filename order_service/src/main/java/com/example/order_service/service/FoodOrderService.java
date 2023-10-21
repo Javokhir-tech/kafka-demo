@@ -1,20 +1,18 @@
-package com.example.food_service.service;
+package com.example.order_service.service;
 
-import com.example.food_service.config.ProducerConfig;
-import com.example.food_service.model.FoodOrder;
+import com.example.order_service.config.ProducerConfig;
+import com.example.order_service.model.FoodOrder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service
 @RequiredArgsConstructor
 public class FoodOrderService {
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
     private final ProducerConfig producerConfig;
-    
+
     public FoodOrder createFoodOrder(FoodOrder foodOrder) {
         try {
             kafkaTemplate.send(producerConfig.topic().name(), foodOrder);

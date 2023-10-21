@@ -1,7 +1,7 @@
-package com.example.food_service.api;
+package com.example.food_storage.api;
 
-import com.example.food_service.model.FoodOrder;
-import com.example.food_service.service.FoodOrderService;
+import com.example.food_storage.model.FoodStorage;
+import com.example.food_storage.service.FoodStorageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/storage")
 @RequiredArgsConstructor
-public class FoodOrderController {
+public class FoodStorageController {
 
-    private final FoodOrderService foodOrderService;
+    private final FoodStorageService foodStorageService;
 
     @PostMapping
-    public FoodOrder createFoodOrder(@RequestBody FoodOrder foodOrder) {
+    public FoodStorage createFood(@RequestBody FoodStorage foodStorage) {
         log.info("create food order request received");
-        return foodOrderService.createFoodOrder(foodOrder);
+        return foodStorageService.createFood(foodStorage);
     }
 }

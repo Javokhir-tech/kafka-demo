@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.9"
 
 networks:
   kafka-net:
@@ -9,7 +9,6 @@ services:
   zookeeper:
     image: zookeeper:3.7.0
     container_name: zookeeper
-    restart: "no"
     networks:
       - kafka-net
     ports:
@@ -18,7 +17,6 @@ services:
   kafka:
     image: obsidiandynamics/kafka
     container_name: kafka
-    restart: "no"
     networks:
       - kafka-net
     ports:
@@ -37,7 +35,6 @@ services:
   kafdrop:
     image: obsidiandynamics/kafdrop
     container_name: kafdrop
-    restart: "no"
     networks:
       - kafka-net
     ports:
@@ -46,3 +43,19 @@ services:
       KAFKA_BROKERCONNECT: "kafka:29092"
     depends_on:
       - "kafka"
+
+  food-service:
+    image: food-service
+    container_name: food-service
+    networks:
+      - kafka-net
+    ports:
+      - "8082:8081"
+
+  order-service:
+    image: order-service
+    container_name: order-service
+    networks:
+      - kafka-net
+    ports:
+      - "8083:8081"

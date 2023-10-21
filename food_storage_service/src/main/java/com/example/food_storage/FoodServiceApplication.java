@@ -1,4 +1,4 @@
-package com.example.food_service;
+package com.example.food_storage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
